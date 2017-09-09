@@ -1,0 +1,9 @@
+*masuk ke direktori gsmap
+
+*Ubah longitude dan latitude sesuaikan dengan keperluan, caranya:
+buka skrip "Run_gsmap.sh"  cek pada baris 30 dan 31 
+
+*running pada cygwin atau pada linux dengan mengetik:
+chmod +x Run_gsmap.sh && ./Run_gsmap.sh
+
+
