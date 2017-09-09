@@ -5,8 +5,8 @@ library(plotrix)
 library(maps)
 
 rm(list = ls())
-setwd("~/Desktop/Studi_Yosik/Friends/adol/Gsmap2nc/output/")
-load("../../../../data/topograp.rda")
+setwd("~/Gsmap2nc/output/")
+#load("../../../../data/topograp.rda")
 f = dir()
 tahun = substr(f,7,10)
 bulan = substr(f,11,12)
@@ -40,13 +40,15 @@ lat=seq(lat[1],lat[length(lat)],length=dim(ave)[2])
 rgb.palette <- colorRampPalette(c("white","black","blue","white","red"),alpha=1)
 # rgb.palette <- colorRampPalette(c("lightblue","green","yellow","red"),alpha=1)
 
-x11(height = 7,width = 9)
+#x11(height = 7,width = 9)
+pdf(file="Gsmap/extreme_precipitation.pdf", width=9, height=7)    
 map("world", fill=F, col="pink", lwd = 2,bg=NA, xlim=c(lon[1],lon[length(lon)]), 
     ylim=c(lat[1], lat[length(lat)]),
     resolution=0.00001)
-image(topograp$xnya,topograp$ynya,topograp$el,axes=FALSE,xlab='Longitude',
-      ylab='Latitude',col=terrain.colors(10,alpha = 0.5),add=T)
+#image(topograp$xnya,topograp$ynya,topograp$el,axes=FALSE,xlab='Longitude',
+#      ylab='Latitude',col=terrain.colors(10,alpha = 0.5),add=T)
 image(lon,lat,ave,col=rgb.palette(100),main = "Hourly Gsmap  extreme weather Percentile 95",add =T)
 box()
 grid(ny=10,nx=9)
 # contour(lon,lat,ave,add=T,nlevels=5)
+dev.off()
